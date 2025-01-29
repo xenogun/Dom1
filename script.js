@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Met à jour le prix total
+  //upd
   function updateTotalPrice() {
     const totalPriceElement = document.querySelector(".total");
     const unitPrices = document.querySelectorAll(".unit-price");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     totalPriceElement.textContent = `${total} $`;
   }
 
-  // Augmenter/diminuer la quantité
+  // + a -
   document
     .querySelectorAll(".fa-plus-circle, .fa-minus-circle")
     .forEach((button) => {
@@ -38,25 +38,24 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  // Supprimer un article
+  // delete
   document.querySelectorAll(".fa-trash-alt").forEach((trashIcon) => {
     trashIcon.addEventListener("click", (e) => {
-      const card = e.target.closest(".card-body");
+      const card = e.target.closest(".card");
       card.remove();
       updateTotalPrice();
     });
   });
 
-  // Aimer un article
+  // like
   document.querySelectorAll(".fa-heart").forEach((heartIcon) => {
     heartIcon.addEventListener("click", (e) => {
-      e.target.classList.toggle("liked"); // Ajoute ou enlève une classe "liked"
+      e.target.classList.toggle("liked");
       e.target.style.color = e.target.classList.contains("liked")
         ? "red"
         : "black";
     });
   });
 
-  // Initialiser le prix total
   updateTotalPrice();
 });
